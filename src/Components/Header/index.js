@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import HomeBanner from '../HomeBanner'
+import CardComponentList from '../../Containers/introCardList'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -104,6 +105,7 @@ export default function ScrollableTabsButtonAuto() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <HomeBanner></HomeBanner>
+        <CardComponentList></CardComponentList>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
