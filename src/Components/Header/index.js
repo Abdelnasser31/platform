@@ -61,6 +61,9 @@ const useStyles = makeStyles((theme: Theme) =>
     button: {
         minHeight: '62px',
         
+    },
+    introCardList: {
+      paddingTop: "100px"
     }
   }),
 );
@@ -105,7 +108,7 @@ export default function ScrollableTabsButtonAuto() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <HomeBanner></HomeBanner>
-        <CardComponentList></CardComponentList>
+        <CardComponentList className={classes.introCardList}></CardComponentList>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
