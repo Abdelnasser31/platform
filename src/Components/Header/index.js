@@ -98,10 +98,8 @@ export default function ScrollableTabsButtonAuto() {
           <Tab label="Recent Stories" {...a11yProps(1)} />
           <Tab label="Share Story" {...a11yProps(2)} />
           <Tab label="About" {...a11yProps(3)} />
-          
-          <Button variant="outlined">
-        Add a story
-      </Button>
+          <Tab label="add Story" {...a11yProps(3)} />
+       
         </Tabs>
       
         </div>
@@ -118,6 +116,9 @@ export default function ScrollableTabsButtonAuto() {
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
       </TabPanel>
      
    
