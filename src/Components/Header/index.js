@@ -98,7 +98,7 @@ export default function ScrollableTabsButtonAuto() {
           <Tab label="Recent Stories" {...a11yProps(1)} />
           <Tab label="Share Story" {...a11yProps(2)} />
           <Tab label="About" {...a11yProps(3)} />
-          <Tab label="add Story" {...a11yProps(4)} />
+          <Tab label="add Story" {...a11yProps(4g)} />
        
         </Tabs>
       
