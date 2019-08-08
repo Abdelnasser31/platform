@@ -5,7 +5,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Selectors from '../Selectors';
+import TitleInput from '../TitleInput';
+import RadioSelectors from '../RadioSelectors';
+import RichText from '../RichText';
 import HomeBanner from '../HomeBanner'
 import CardComponentList from '../../Containers/introCardList'
 
@@ -117,8 +121,21 @@ export default function ScrollableTabsButtonAuto() {
       <TabPanel value={value} index={3}>
         Item Four
       </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
+       <TabPanel value={value} index={4}>
+      <div>
+      <Grid container spacing={3}>
+        <Grid item xs={4}>
+          <TitleInput></TitleInput>
+          </Grid>
+          <Grid item xs={4}>
+          <Selectors></Selectors>
+          </Grid>
+          <Grid item xs={4}>
+          <RadioSelectors></RadioSelectors>
+        </Grid>
+     </Grid>
+     <RichText></RichText>
+    </div>
       </TabPanel>
      
    
