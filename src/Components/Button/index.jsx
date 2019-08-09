@@ -26,9 +26,9 @@ const storyLocation = locations[locationInput-1];
 const imageInput = document.getElementById('imageURL').value;
 const defaultImage = 'https://static.wixstatic.com/media/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg/v1/fill/w_740,h_346,al_c,q_90,usm_0.66_1.00_0.01/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg';
 const imageURL = (imageInput == undefined || imageInput ==="") ? defaultImage : imageInput;
-
+const storyText = document.querySelector('#cke_1_contents textarea').value;
 if (titleInput === undefined || storyType === undefined || storyOwner === undefined || storyLocation === undefined){
- console.log(imageURL)
+ console.log(storyText)
   return (alert('bad input'));
 }
 
