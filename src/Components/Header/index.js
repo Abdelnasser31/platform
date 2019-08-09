@@ -13,6 +13,8 @@ import RichText from '../RichText';
 import HomeBanner from '../HomeBanner'
 import CardComponentList from '../../Containers/introCardList'
 import StoriesList from '../../Containers/storiesList'
+import Button from '@material-ui/core/Button'
+const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -72,6 +74,32 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   }),
 );
+async function postData() {
+  const storyTitle = document.getElementById('outlined-name').value;
+  const storyLocation = document.getElementById('outlined-location-native-simple').value;
+  const storyType = document.getElementById('outlined-type-native-simple').value;
+  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories`
+  await fetch(url, {
+    method: 'POST',
+    header: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      fields: {
+        type : {
+          stringValue: 'Syria',
+        },
+        title: {
+         
+            stringValue: 'story three'
+          
+        }
+      }
+    })
+  })
+  alert("done")
+}
+  
 
 export default function ScrollableTabsButtonAuto() {
   const classes = useStyles();
@@ -136,6 +164,7 @@ export default function ScrollableTabsButtonAuto() {
         </Grid>
      </Grid>
      <RichText></RichText>
+     <Button onClick={postData}>Submit</Button>
     </div>
       </TabPanel>
      
