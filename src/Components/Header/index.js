@@ -4,10 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import gray from '@material-ui/core/colors/grey';
-import StoryForm from '../StoryForm';
-import HomeBanner from '../HomeBanner';
-import CardComponentList from '../../Containers/introCardList';
-import StoriesList from '../../Containers/storiesList';
+
+import {Link} from 'react-router-dom'
+
+
 import TabPanel from '../TabPanel';
 import styles from './styels.module.css';
 import About from '../About';
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
       width: '100%',
+      marginBottom: 24,
       
       backgroundColor: theme.palette.background.paper,
     },
@@ -76,34 +77,17 @@ export default function ScrollableTabsButtonAuto() {
           flexContainer = "true"
           
         >
-          <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/>
-          <Tab label="All Stories" {...a11yProps(1)} />
-          <Tab label="Share Story" {...a11yProps(2)} />
-          <Tab label="About" {...a11yProps(3)} />
-          <Tab label="add Story" {...a11yProps(4)} />
+         <Link to="/"> <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/></Link>
+      
+          <Link to="/stories"><Tab label="All Stories" {...a11yProps(1)} className={classes.button}/></Link>
+          <Link to="/share-story"><Tab label="Share Story" {...a11yProps(2)} className={classes.button}/></Link>
+          <Link to="/about"><Tab label="About" {...a11yProps(3)} className={classes.button}/></Link>
+          <Link to="/add-story"><Tab label="add Story" {...a11yProps(4)} className={classes.button}/></Link>
        
         </Tabs>
       
         </div>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        <HomeBanner></HomeBanner>
-        <CardComponentList className={styles.introCardList}></CardComponentList>
-        <StoriesList number="3"></StoriesList>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <StoriesList number="all"></StoriesList>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <About></About>
-      </TabPanel>
-       <TabPanel value={value} index={4}>
-         <StoryForm></StoryForm>
-      </TabPanel>
-     
    
     </div>
   );

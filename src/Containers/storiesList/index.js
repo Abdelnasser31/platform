@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
+import Spinner from '../../Components/Spinner'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 export default class StoriesList extends React.Component {
@@ -13,7 +14,7 @@ fetchStories = async () => {
     const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories`
     const response = await fetch(url);
     const json = await response.json();
-        if(this.props.number !== "all"){
+        if(this.props.number){
             this.setState({stories: json.documents.slice(0,this.props.number)})
         }else{
     
@@ -21,7 +22,7 @@ fetchStories = async () => {
 }
 render () {
     if (this.state.stories === null){
-        return (<h1>Loading...</h1>)
+        return (<Spinner></Spinner>)
     }
     return (
         <div>
