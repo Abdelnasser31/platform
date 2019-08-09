@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import gray from '@material-ui/core/colors/grey';
+import StoryPage from '../StoryPage';
 import StoryForm from '../StoryForm';
 import HomeBanner from '../HomeBanner';
 import CardComponentList from '../../Containers/introCardList';
@@ -98,11 +99,8 @@ export default function ScrollableTabsButtonAuto() {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-<<<<<<< HEAD
-        <StoryPage></StoryPage>
-=======
-        <About></About>
->>>>>>> 7f5a29f0fd2c50dcba0d9eb7cdab60b99423bc39
+      <StoryPage></StoryPage>
+      <About></About>
       </TabPanel>
        <TabPanel value={value} index={4}>
          <StoryForm></StoryForm>
