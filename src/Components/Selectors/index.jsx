@@ -48,7 +48,7 @@ function Selectors() {
     return (
         <div className={classes.root}>
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel ref={inputLabel} htmlFor="outlined-location-native-simple">
+            <InputLabel ref={inputLabel} htmlFor="location">
               Location
             </InputLabel>
             <Select
@@ -56,7 +56,7 @@ function Selectors() {
               value={state.location}
               onChange={handleChange('location')}
               input={
-                <OutlinedInput name="location" labelWidth={labelWidth} id="outlined-location-native-simple" />
+                <OutlinedInput name="location" labelWidth={labelWidth} id="location" />
               }
             >
               <option value="" />
@@ -68,7 +68,7 @@ function Selectors() {
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel ref={inputLabel} htmlFor="outlined-type-native-simple">
+            <InputLabel ref={inputLabel} htmlFor="type">
               Type
             </InputLabel>
             <Select
@@ -76,7 +76,7 @@ function Selectors() {
               value={state.type}
               onChange={handleChange('type')}
               input={
-                <OutlinedInput name="type" labelWidth={labelWidth} id="outlined-type-native-simple" />
+                <OutlinedInput name="type" labelWidth={labelWidth} id="type" />
               }
             >
               <option value="" />
@@ -87,7 +87,7 @@ function Selectors() {
             </Select>
           </FormControl>
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel ref={inputLabel} htmlFor="outlined-owner-native-simple">
+            <InputLabel ref={inputLabel} htmlFor="owner">
               Owner
             </InputLabel>
             <Select
@@ -95,7 +95,7 @@ function Selectors() {
               value={state.owner}
               onChange={handleChange('owner')}
               input={
-                <OutlinedInput name="owner" labelWidth={labelWidth} id="outlined-owner-native-simple" />
+                <OutlinedInput name="owner" labelWidth={labelWidth} id="owner" />
               }
             >
               <option value="" />

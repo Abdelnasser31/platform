@@ -93,9 +93,10 @@ export default function ScrollableTabsButtonAuto() {
       <TabPanel value={value} index={0}>
         <HomeBanner></HomeBanner>
         <CardComponentList className={styles.introCardList}></CardComponentList>
+        <StoriesList number="3"></StoriesList>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <StoriesList></StoriesList>
+        <StoriesList number="all"></StoriesList>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
