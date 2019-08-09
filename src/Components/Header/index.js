@@ -3,8 +3,6 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '../Button';
 import Selectors from '../Selectors';
@@ -14,31 +12,15 @@ import RichText from '../RichText';
 import HomeBanner from '../HomeBanner'
 import CardComponentList from '../../Containers/introCardList'
 import StoriesList from '../../Containers/storiesList'
+<<<<<<< HEAD
+import TabPanel from '../TabPanel'
+import styles from './styels.module.css'
+=======
 import Button from '@material-ui/core/Button'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
+>>>>>>> 512d253617e663ff617bc2632c039ebcebbb2821
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`scrollable-auto-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
-    >
-      <Box p={3}>{children}</Box>
-    </Typography>
-  );
-}
 
 function a11yProps(index: any) {
   return {
@@ -67,12 +49,9 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundRepeat: 'no-repeat'
     },
     button: {
-        minHeight: '62px',
-        
+        minHeight: '62px', 
     },
-    introCardList: {
-      paddingTop: "100px"
-    }
+
   }),
 );
 async function postData() {
@@ -149,7 +128,7 @@ export default function ScrollableTabsButtonAuto() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <HomeBanner></HomeBanner>
-        <CardComponentList className={classes.introCardList}></CardComponentList>
+        <CardComponentList className={styles.introCardList}></CardComponentList>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <StoriesList></StoriesList>
