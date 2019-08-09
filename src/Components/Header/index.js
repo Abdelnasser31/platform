@@ -3,12 +3,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-// import Grid from '@material-ui/core/Grid';
-// import Button, {postData} from '../Button';
-// import Selectors from '../Selectors';
-// import TitleInput from '../TitleInput';
-// import RadioSelectors from '../RadioSelectors';
-// import RichText from '../RichText';
+import StoryPage from '../StoryPage'
 import StoryForm from '../StoryForm';
 import HomeBanner from '../HomeBanner';
 import CardComponentList from '../../Containers/introCardList';
@@ -102,7 +97,7 @@ export default function ScrollableTabsButtonAuto() {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <StoryPage></StoryPage>
       </TabPanel>
        <TabPanel value={value} index={4}>
          <StoryForm></StoryForm>
