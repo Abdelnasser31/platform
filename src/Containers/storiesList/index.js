@@ -14,7 +14,7 @@ fetchStories = async () => {
     const response = await fetch(url);
     const json = await response.json();
         if(this.props.number !== "all"){
-            this.setState({stories: json.documents.slice(this.props.number)})
+            this.setState({stories: json.documents.slice(0,this.props.number)})
         }else{
     
     this.setState({stories: json.documents});}
