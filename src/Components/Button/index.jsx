@@ -46,12 +46,12 @@ export async function postData() {
   alert("done")
 }
 
-function Buttons() {
+function Buttons(props) {
   const classes = useStyles();
 
   return (
 
-    <Button variant="contained" color="#333" className={classes.button}>
+    <Button onClick={props.onClick} variant="contained" color="#333" className={classes.button}>
     Add Story
   </Button>
 
