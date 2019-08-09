@@ -79,10 +79,10 @@ export default function ScrollableTabsButtonAuto() {
         >
          <Link to="/"> <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/></Link>
       
-          <Link to="/stories"><Tab label="All Stories" {...a11yProps(1)} /></Link>
-          <Link to="/share-story"><Tab label="Share Story" {...a11yProps(2)} /></Link>
-          <Link to="/about"><Tab label="About" {...a11yProps(3)} /></Link>
-          <Link to="/add-story"><Tab label="add Story" {...a11yProps(4)} /></Link>
+          <Link to="/stories"><Tab label="All Stories" {...a11yProps(1)} className={classes.button}/></Link>
+          <Link to="/share-story"><Tab label="Share Story" {...a11yProps(2)} className={classes.button}/></Link>
+          <Link to="/about"><Tab label="About" {...a11yProps(3)} className={classes.button}/></Link>
+          <Link to="/add-story"><Tab label="add Story" {...a11yProps(4)} className={classes.button}/></Link>
        
         </Tabs>
       

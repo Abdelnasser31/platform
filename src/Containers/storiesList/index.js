@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
+import Spinner from '../../Components/Spinner'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 export default class StoriesList extends React.Component {
@@ -21,7 +22,7 @@ fetchStories = async () => {
 }
 render () {
     if (this.state.stories === null){
-        return (<h1>Loading...</h1>)
+        return (<Spinner></Spinner>)
     }
     return (
         <div>
