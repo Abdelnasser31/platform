@@ -93,6 +93,15 @@ async function postData() {
          
             stringValue: 'story three'
           
+        },
+        imageURL: {
+          stringValue: 'https://static.wixstatic.com/media/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg/v1/fill/w_740,h_346,al_c,q_90,usm_0.66_1.00_0.01/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg'
+        },
+        favouriteCount: {
+          integerValue: 0,
+        },
+        viewCount: {
+          integerValue: 0,
         }
       }
     })
