@@ -15,6 +15,7 @@ import CardComponentList from '../../Containers/introCardList';
 import StoriesList from '../../Containers/storiesList';
 import TabPanel from '../TabPanel';
 import styles from './styels.module.css';
+import About from '../About';
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 
@@ -101,7 +102,7 @@ export default function ScrollableTabsButtonAuto() {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <About></About>
       </TabPanel>
        <TabPanel value={value} index={4}>
          <StoryForm></StoryForm>
