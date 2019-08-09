@@ -13,6 +13,7 @@ import RadioSelectors from '../RadioSelectors';
 import RichText from '../RichText';
 import HomeBanner from '../HomeBanner'
 import CardComponentList from '../../Containers/introCardList'
+import StoriesList from '../../Containers/storiesList'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -114,7 +115,7 @@ export default function ScrollableTabsButtonAuto() {
         <CardComponentList className={classes.introCardList}></CardComponentList>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <StoriesList></StoriesList>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
