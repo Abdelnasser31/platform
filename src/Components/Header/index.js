@@ -3,9 +3,8 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Button, {postData} from '../Button';
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
 import RadioSelectors from '../RadioSelectors';
@@ -13,31 +12,11 @@ import RichText from '../RichText';
 import HomeBanner from '../HomeBanner'
 import CardComponentList from '../../Containers/introCardList'
 import StoriesList from '../../Containers/storiesList'
-import Button from '@material-ui/core/Button'
+import TabPanel from '../TabPanel'
+import styles from './styels.module.css'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`scrollable-auto-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
-    >
-      <Box p={3}>{children}</Box>
-    </Typography>
-  );
-}
 
 function a11yProps(index: any) {
   return {
@@ -66,48 +45,12 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundRepeat: 'no-repeat'
     },
     button: {
-        minHeight: '62px',
-        
+        minHeight: '62px', 
     },
-    introCardList: {
-      paddingTop: "100px"
-    }
+
   }),
 );
-async function postData() {
-  const storyTitle = document.getElementById('outlined-name').value;
-  const storyLocation = document.getElementById('outlined-location-native-simple').value;
-  const storyType = document.getElementById('outlined-type-native-simple').value;
-  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories`
-  await fetch(url, {
-    method: 'POST',
-    header: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      fields: {
-        type : {
-          stringValue: 'Syria',
-        },
-        title: {
-         
-            stringValue: 'story three'
-          
-        },
-        imageURL: {
-          stringValue: 'https://static.wixstatic.com/media/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg/v1/fill/w_740,h_346,al_c,q_90,usm_0.66_1.00_0.01/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg'
-        },
-        favouriteCount: {
-          integerValue: 0,
-        },
-        viewCount: {
-          integerValue: 0,
-        }
-      }
-    })
-  })
-  alert("done")
-}
+
   
 
 export default function ScrollableTabsButtonAuto() {
@@ -136,8 +79,8 @@ export default function ScrollableTabsButtonAuto() {
           flexContainer = "true"
           
         >
-          <Tab label="All Stories" {...a11yProps(0)} className={classes.button}/>
-          <Tab label="Recent Stories" {...a11yProps(1)} />
+          <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/>
+          <Tab label="All Stories" {...a11yProps(1)} />
           <Tab label="Share Story" {...a11yProps(2)} />
           <Tab label="About" {...a11yProps(3)} />
           <Tab label="add Story" {...a11yProps(4)} />
@@ -148,7 +91,7 @@ export default function ScrollableTabsButtonAuto() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <HomeBanner></HomeBanner>
-        <CardComponentList className={classes.introCardList}></CardComponentList>
+        <CardComponentList className={styles.introCardList}></CardComponentList>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <StoriesList></StoriesList>
@@ -173,7 +116,7 @@ export default function ScrollableTabsButtonAuto() {
         </Grid>
      </Grid>
      <RichText></RichText>
-     <Button onClick={postData}>Submit</Button>
+     <Button onClick={postData}></Button>
     </div>
       </TabPanel>
      
