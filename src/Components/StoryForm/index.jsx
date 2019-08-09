@@ -4,10 +4,11 @@ import Button, {postData} from '../Button';
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
 import RichText from '../RichText';
-
+import Container from '@material-ui/core/Container'
 function StoryForm() {
 
     return (
+        <Container>
         <div>
             <Grid container spacing={3}>
                 <Grid item xs={4}>
@@ -23,6 +24,7 @@ function StoryForm() {
             <RichText></RichText>
             <Button onClick={postData}></Button>
         </div>
+        </Container>
     );
 }
 
