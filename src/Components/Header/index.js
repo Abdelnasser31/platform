@@ -3,17 +3,18 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Grid from '@material-ui/core/Grid';
-import Button, {postData} from '../Button';
-import Selectors from '../Selectors';
-import TitleInput from '../TitleInput';
-import RadioSelectors from '../RadioSelectors';
-import RichText from '../RichText';
-import HomeBanner from '../HomeBanner'
-import CardComponentList from '../../Containers/introCardList'
-import StoriesList from '../../Containers/storiesList'
-import TabPanel from '../TabPanel'
-import styles from './styels.module.css'
+// import Grid from '@material-ui/core/Grid';
+// import Button, {postData} from '../Button';
+// import Selectors from '../Selectors';
+// import TitleInput from '../TitleInput';
+// import RadioSelectors from '../RadioSelectors';
+// import RichText from '../RichText';
+import StoryForm from '../StoryForm';
+import HomeBanner from '../HomeBanner';
+import CardComponentList from '../../Containers/introCardList';
+import StoriesList from '../../Containers/storiesList';
+import TabPanel from '../TabPanel';
+import styles from './styels.module.css';
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 
@@ -104,21 +105,7 @@ export default function ScrollableTabsButtonAuto() {
         Item Four
       </TabPanel>
        <TabPanel value={value} index={4}>
-      <div>
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <TitleInput></TitleInput>
-          </Grid>
-          <Grid item xs={4}>
-          <Selectors></Selectors>
-          </Grid>
-          <Grid item xs={4}>
-          <RadioSelectors></RadioSelectors>
-        </Grid>
-     </Grid>
-     <RichText></RichText>
-     <Button onClick={postData}></Button>
-    </div>
+         <StoryForm></StoryForm>
       </TabPanel>
      
    
