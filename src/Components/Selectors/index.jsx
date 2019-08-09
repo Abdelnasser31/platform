@@ -29,6 +29,7 @@ function Selectors() {
     const [state, setState] = React.useState({
         location: '',
         type: '',
+        owner: '',
     })
 
     const inputLabel = React.useRef(null);
@@ -83,6 +84,23 @@ function Selectors() {
               <option value={2}>Society</option>
               <option value={3}>Economy</option>
               <option value={4}>Art & Culture</option>
+            </Select>
+          </FormControl>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel ref={inputLabel} htmlFor="outlined-owner-native-simple">
+              Owner
+            </InputLabel>
+            <Select
+              native
+              value={state.owner}
+              onChange={handleChange('owner')}
+              input={
+                <OutlinedInput name="owner" labelWidth={labelWidth} id="outlined-owner-native-simple" />
+              }
+            >
+              <option value="" />
+              <option value={1}>Individual</option>
+              <option value={2}>Group</option>
             </Select>
           </FormControl>
         </div>
