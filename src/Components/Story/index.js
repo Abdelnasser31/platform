@@ -63,18 +63,18 @@ export default class Story extends React.Component {
             </CardContent>
           
         </CardActionArea>
-        <CardActions disableSpacing>
+        <CardActions disableSpacing >
           <Box marginRight="auto">
-            <IconButton aria-label="add to favorites" onClick={this.favoriteStory}>
+            <IconButton aria-label="add to favorites" onClick={this.favoriteStory} className={styles.actions}>
 
-              <FavoriteIcon color="secondary"/> {this.state.favoritesCount}
+              <FavoriteIcon color="secondary"/> {this.state.favoritesCount < 2 ? (this.state.favoritesCount + " Like"): this.state.favoritesCount + " Likes"} 
 
             </IconButton>
           </Box>
           <Box marginLeft="auto">
-            <IconButton>
+            <IconButton className={styles.actions}>
 
-              <Visibility color="primary"/> {this.props.viewsCount}
+              <Visibility color="primary"/> {this.props.viewsCount < 2 ? this.props.viewsCount + " View" : this.props.viewsCount + "  Views"}
 
             </IconButton>
           </Box>
