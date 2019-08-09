@@ -3,12 +3,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-// import Grid from '@material-ui/core/Grid';
-// import Button, {postData} from '../Button';
-// import Selectors from '../Selectors';
-// import TitleInput from '../TitleInput';
-// import RadioSelectors from '../RadioSelectors';
-// import RichText from '../RichText';
+import gray from '@material-ui/core/colors/grey';
 import StoryForm from '../StoryForm';
 import HomeBanner from '../HomeBanner';
 import CardComponentList from '../../Containers/introCardList';
@@ -73,8 +68,8 @@ export default function ScrollableTabsButtonAuto() {
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor= "gray[500]"
+          textColor="gray[900]"
           variant="scrollable"
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
