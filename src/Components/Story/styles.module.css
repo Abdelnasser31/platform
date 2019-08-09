@@ -2,8 +2,15 @@
     max-width: 345 !important;
     background: #000 !important;
     border: 1px solid #d7d7d7;
-    color: #fff !important
+    color: #d7d7d7 !important
   }
   .actions{
-    color: #fff !important
+    color: #d7d7d7 !important
+  }
+  .title{
+    color: #d7d7d7;
+    text-decoration: none;
+  }
+  .title:hover{
+    cursor: pointer;
   }

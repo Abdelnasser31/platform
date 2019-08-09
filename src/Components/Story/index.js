@@ -10,12 +10,14 @@ import Visibility from '@material-ui/icons/Visibility';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import CardActions from '@material-ui/core/CardActions';
-import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from 'react-router-dom'
 import styles from './styles.module.css'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
-
+function fetchID (URL){
+  const parts = URL.split('/');
+  return (parts.pop());
+}
 export default class Story extends React.Component {
   state = {
     favoritesCount: parseInt(this.props.favoritesCount)
@@ -44,24 +46,23 @@ export default class Story extends React.Component {
   render() {
     return (
       <Card className={styles.card}>
-
+        
         <CardActionArea>
-         
-
+        <Link to={`/story/${fetchID(this.props.name)}`}>
             <CardMedia
               component="img"
-              alt="Contemplative Reptile"
+              alt="Success Story"
               height="240"
               image={this.props.storyImage}
               title="Contemplative Reptile"/>
 
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" className={styles.title}>
                 {this.props.storyTitle}
               </Typography>
 
             </CardContent>
-          
+            </Link>
         </CardActionArea>
         <CardActions disableSpacing >
           <Box marginRight="auto">

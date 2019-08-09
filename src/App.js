@@ -5,6 +5,7 @@ import RecentStories from './Containers/RecentStories'
 import About from './Components/About'
 import StoryForm from './Components/StoryForm'
 import StoriesList from './Containers/storiesList'
+import StoryPage from './Components/StoryPage'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
 
@@ -18,7 +19,7 @@ function App() {
           <Route path="/about" component={About}/>
           <Route path="/stories" component={StoriesList}/>
           <Route path="/add-story" component={StoryForm}/>
-
+          <Route path="/story/:id" component={StoryPage} />
         </Switch>
         <Footer></Footer>
       </div>
