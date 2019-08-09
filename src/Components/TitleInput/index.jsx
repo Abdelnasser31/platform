@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 
-function TitleInput() {
+function TitleInput(props) {
     const classes = useStyles();
     const [values, setValues] = React.useState({
       name: '',
@@ -34,8 +34,8 @@ function TitleInput() {
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="outlined-name"
-          label="Title"
+          id={props.id}
+          label={props.label}
           className={classes.textField}
           value={values.name}
           onChange={handleChange('name')}
