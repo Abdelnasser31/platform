@@ -13,7 +13,11 @@ fetchStories = async () => {
     const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories`
     const response = await fetch(url);
     const json = await response.json();
-    this.setState({stories: json.documents});
+        if(this.props.number !== "all"){
+            this.setState({stories: json.documents.slice(this.props.number)})
+        }else{
+    
+    this.setState({stories: json.documents});}
 }
 render () {
     if (this.state.stories === null){
