@@ -6,6 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Button from '../Button';
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
 import RadioSelectors from '../RadioSelectors';
@@ -173,7 +174,7 @@ export default function ScrollableTabsButtonAuto() {
         </Grid>
      </Grid>
      <RichText></RichText>
-     <Button onClick={postData}>Submit</Button>
+     <Button onClick={postData}></Button>
     </div>
       </TabPanel>
      
