@@ -18,9 +18,13 @@ function fetchID (URL){
   const parts = URL.split('/');
   return (parts.pop());
 }
+
+ 
+
 export default class Story extends React.Component {
   state = {
-    favoritesCount: parseInt(this.props.favoritesCount)
+    favoritesCount: parseInt(this.props.favoritesCount),
+    viewsCount: parseInt(this.props.viewsCount)
   }
   favoriteStory = () => {
     this.setState({
@@ -43,12 +47,34 @@ export default class Story extends React.Component {
       })
     })
   }
+  viewStory = () => {
+    this.setState({
+      viewsCount: this.state.viewsCount + 1
+    }, () => this.updateViewsCount());
+  }
+  updateViewsCount = async() => {
+    console.log(this.state.viewsCount, "here");
+    const url = `${BASE_URL}/${this.props.name}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
+    await fetch(url, {
+      method: 'PATCH',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        fields: {
+          viewCount: {
+            integerValue: this.state.viewsCount
+          }
+        }
+      })
+    })
+  }
   render() {
     return (
       <Card className={styles.card}>
         
-        <CardActionArea>
-        <Link to={`/story/${fetchID(this.props.name)}`}>
+        <CardActionArea onClick={this.viewStory}>
+        <Link to={`/story/${fetchID(this.props.name)}`} >
             <CardMedia
               component="img"
               alt="Success Story"
@@ -75,7 +101,7 @@ export default class Story extends React.Component {
           <Box marginLeft="auto">
             <IconButton className={styles.actions}>
 
-              <Visibility color="primary"/> {this.props.viewsCount < 2 ? this.props.viewsCount + " View" : this.props.viewsCount + "  Views"}
+              <Visibility color="primary"/> {this.state.viewsCount < 2 ? this.state.viewsCount + " View" : this.state.viewsCount + "  Views"}
 
             </IconButton>
           </Box>
