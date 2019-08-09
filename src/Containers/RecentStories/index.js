@@ -6,7 +6,7 @@ import StoriesList from '../../Containers/storiesList';
 export default class RecentStories extends React.Component {
   render() {
     return (
-      <div>
+      <div className={styles.root}>
         <HomeBanner></HomeBanner>
         <CardComponentList className={styles.introCardList}></CardComponentList>
         <StoriesList number="3"></StoriesList>
