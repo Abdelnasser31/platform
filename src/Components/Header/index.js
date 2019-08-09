@@ -3,13 +3,14 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import StoryPage from '../StoryPage'
+import gray from '@material-ui/core/colors/grey';
 import StoryForm from '../StoryForm';
 import HomeBanner from '../HomeBanner';
 import CardComponentList from '../../Containers/introCardList';
 import StoriesList from '../../Containers/storiesList';
 import TabPanel from '../TabPanel';
 import styles from './styels.module.css';
+import About from '../About';
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 
@@ -67,8 +68,8 @@ export default function ScrollableTabsButtonAuto() {
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor= "gray[500]"
+          textColor="gray[900]"
           variant="scrollable"
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
@@ -97,7 +98,11 @@ export default function ScrollableTabsButtonAuto() {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
+<<<<<<< HEAD
         <StoryPage></StoryPage>
+=======
+        <About></About>
+>>>>>>> 7f5a29f0fd2c50dcba0d9eb7cdab60b99423bc39
       </TabPanel>
        <TabPanel value={value} index={4}>
          <StoryForm></StoryForm>
