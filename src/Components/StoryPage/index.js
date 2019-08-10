@@ -46,7 +46,7 @@ export default class StoryPage extends React.Component{
   }
 
   fetchStory = async () =>{
-    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${storyId}`
+    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${window.location.href.split('/').pop()}`
     const response = await fetch(url);
     const json = await response.json();
      this.setState({story: json})
