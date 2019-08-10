@@ -101,7 +101,7 @@ export default class Story extends React.Component {
           <Box marginLeft="auto">
             <IconButton className={styles.actions}>
 
-              <Visibility color="primary"/> {this.state.viewsCount < 2 ? this.state.viewsCount + " View" : this.state.viewsCount + "  Views"}
+              <Visibility color={"#333"} /> {this.state.viewsCount < 2 ? this.state.viewsCount + " View" : this.state.viewsCount + "  Views"}
 
             </IconButton>
           </Box>
