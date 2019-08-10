@@ -1,12 +1,15 @@
 import React from 'react';
 import Story from '../Story'
 import Grid from '@material-ui/core/Grid'
+import { Container } from '@material-ui/core';
 
 export default function Stories({ stories, updateFavoritesCount}) {
     return (
-        <Grid container spacing={3} justify="center">
+        <Container>
+                    <Grid container spacing={3} justify="center">
           {
               stories.map(story => (
+                  
                   <Grid item xs={3}>
                       <Story
                       name= {story.name}
@@ -22,5 +25,7 @@ export default function Stories({ stories, updateFavoritesCount}) {
               ))
           }
         </Grid>
+        </Container>
+
     )
 }
