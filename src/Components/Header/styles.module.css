@@ -10,8 +10,21 @@
     padding-top:  "100px";
 }
 
-.button {
-    min-height: '62px';    
+.link {
+    min-height: '62px';   
+    color: #888;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: all 0.3s ease-in-out;
+
+
+}
+.link:hover, .button:hover{ 
+    cursor: pointer;
+    color: #222;
+    border-bottom: 2px solid #333;
+}
+.link:visited, .button:visited{
+    color: #222;
 }
 
 .img {

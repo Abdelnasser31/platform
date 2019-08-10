@@ -4,13 +4,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import gray from '@material-ui/core/colors/grey';
-
+import styles from './styles.module.css'
 import {Link} from 'react-router-dom'
 
 
-import TabPanel from '../TabPanel';
-import styles from './styels.module.css';
-import About from '../About';
+
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
 
@@ -77,12 +75,12 @@ export default function ScrollableTabsButtonAuto() {
           flexContainer = "true"
           
         >
-         <Link to="/"> <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/></Link>
+         <Link to="/" className={styles.link} > <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/></Link>
       
-          <Link to="/stories"><Tab label="All Stories" {...a11yProps(1)} className={classes.button}/></Link>
-          <Link to="/share-story"><Tab label="Share Story" {...a11yProps(2)} className={classes.button}/></Link>
-          <Link to="/about"><Tab label="About" {...a11yProps(3)} className={classes.button}/></Link>
-          <Link to="/add-story"><Tab label="add Story" {...a11yProps(4)} className={classes.button}/></Link>
+          <Link to="/stories" className={styles.link} ><Tab label="All Stories" {...a11yProps(1)} className={classes.button}/></Link>
+          <Link to="/share-story" className={styles.link} ><Tab label="Share Story" {...a11yProps(2)} className={classes.button}/></Link>
+          <Link to="/about" className={styles.link} ><Tab label="About" {...a11yProps(3)} className={classes.button}/></Link>
+          <Link to="/add-story" className={styles.link} ><Tab label="add Story" {...a11yProps(4)} className={classes.button}/></Link>
        
         </Tabs>
       
