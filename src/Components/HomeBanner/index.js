@@ -1,5 +1,6 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import styles from './styles.module.css'
 
 export default function homeBanner() {
@@ -9,7 +10,7 @@ export default function homeBanner() {
       
         <div className={styles.overlay}>
         <Grid container direction="row" justify="center" alignItems="center">
-          <p>What is standing<br/> between <br/> you and success?</p>
+          <Typography variant="h2"><strong>WHAT IS STANDING<br/> BETWEEN <br/> YOU AND SUCCESS?</strong></Typography>
           </Grid>
         </div>
 
