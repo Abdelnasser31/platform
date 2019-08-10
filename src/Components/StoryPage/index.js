@@ -66,7 +66,7 @@ export default class StoryPage extends React.Component{
       />
       <CardMedia
         className={styles.media}
-        image="https://static.wixstatic.com/media/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg/v1/fill/w_740,h_346,al_c,q_90,usm_0.66_1.00_0.01/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg"
+        image = {this.state.story.fields.imageURL.stringValue}
         title="Success Story"
       />
         <CardContent className={styles.storyText}>

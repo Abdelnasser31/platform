@@ -94,14 +94,14 @@ export default class Story extends React.Component {
           <Box marginRight="auto">
             <IconButton aria-label="add to favorites" onClick={this.favoriteStory} className={styles.actions}>
 
-              <FavoriteIcon color="secondary"/> {this.state.favoritesCount < 2 ? (this.state.favoritesCount + " Like"): this.state.favoritesCount + " Likes"} 
+              <FavoriteIcon color="secondary"/> <Typography variant="subtitle1">{this.state.favoritesCount < 2 ? (this.state.favoritesCount + " Like"): this.state.favoritesCount + " Likes"} </Typography>
 
             </IconButton>
           </Box>
           <Box marginLeft="auto">
             <IconButton className={styles.actions}>
 
-              <Visibility color={"#333"} /> {this.state.viewsCount < 2 ? this.state.viewsCount + " View" : this.state.viewsCount + "  Views"}
+              <Visibility color={"#333"} /> <Typography variant="subtitle1"> {this.state.viewsCount < 2 ? this.state.viewsCount + " View" : this.state.viewsCount + "  Views"}</Typography>
 
             </IconButton>
           </Box>

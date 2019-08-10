@@ -7,7 +7,7 @@ export default function Stories({ stories, updateFavoritesCount}) {
         <Grid container spacing={3} justify="center">
           {
               stories.map(story => (
-                  <Grid item>
+                  <Grid item xs={3}>
                       <Story
                       name= {story.name}
                       storyTitle = {story.fields.title.stringValue}
