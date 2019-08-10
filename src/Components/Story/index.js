@@ -74,7 +74,7 @@ export default class Story extends React.Component {
       <Card className={styles.card}>
         
         <CardActionArea onClick={this.viewStory}>
-        <Link to={`/story/${fetchID(this.props.name)}`} >
+        <Link to={`/story/${fetchID(this.props.name)}`} style={{textDecoration: 'none'}}>
             <CardMedia
               component="img"
               alt="Success Story"
