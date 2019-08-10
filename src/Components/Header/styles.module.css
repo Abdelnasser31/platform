@@ -1,0 +1,37 @@
+
+.tabs{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+.introCardList {
+    padding-top:  "100px";
+}
+
+.link {
+    min-height: '62px';   
+    color: #888;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: all 0.3s ease-in-out;
+
+
+}
+.link:hover, .button:hover{ 
+    cursor: pointer;
+    color: #222;
+    border-bottom: 2px solid #333;
+}
+.link:visited, .button:visited{
+    color: #222;
+}
+
+.img {
+        width: '80px';
+        height: '60px';
+        background-image: url("https://static.wixstatic.com/media/600c78_618e8fc2e4334570aa49d2825fd9de13~mv2_d_2700_1762_s_2.png");
+        background-size: '80px';
+        background-repeat: 'no-repeat';
+
+}
