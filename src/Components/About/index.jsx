@@ -13,7 +13,7 @@ function About() {
         <div className={styles.overlay}>  
         <Container maxWidth="sm">     
         <Grid container direction="row" justify="center" alignItems="center">
-        <Typography variant="h2">About Us</Typography>
+        <Typography variant="h2"><strong>About Us</strong></Typography>
 
         <Typography variant="h6">
           <br/>Syrian Success Story is a platform that shares the experiences of Syrians who not only survived the ravages of war, but who have gone on to be true success stories, becoming symbols of inspiration and hope, thriving in spite of the many challenges that they faced.
