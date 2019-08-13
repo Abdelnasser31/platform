@@ -15,21 +15,22 @@ import ShareIcon from '@material-ui/icons/Share';
 import Spinner from '../Spinner'
 const BASE_URL = 'https://firestore.googleapis.com/v1'
 
-const storyId = window.location.href.split('/').pop();
 export default class StoryPage extends React.Component{
   state = {
     story: null,
     viewsCount: 0,
   }
   componentDidMount() {
-    
+    this.storyId =  this.props.match.params;
     this.fetchStory();
     
   }
   updateViewsCount = async() => {
     console.log(this.state.viewsCount, "here");
-    this.setState({viewsCount: parseInt(this.state.story.fields.viewCount.integerValue) + 1})
-    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${storyId}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
+    this.setState({viewsCount: parseInt(this.state.story.fields.viewCount.integerValue) + 1},
+    async () => {
+      console.log('before the fetch',this.state.viewsCount);
+    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
     await fetch(url, {
       method: 'PATCH',
       header: {
@@ -43,14 +44,18 @@ export default class StoryPage extends React.Component{
         }
       })
     })
+    console.log('after the fetch',this.state.viewsCount);
+  })
+    
+   
+   
   }
 
   fetchStory = async () =>{
     const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${window.location.href.split('/').pop()}`
     const response = await fetch(url);
     const json = await response.json();
-     this.setState({story: json})
-     this.updateViewsCount();
+     this.setState({story: json},() => this.setState({viewCount: this.state.story.fields.viewCount.integerValue},() => this.updateViewsCount()))
   }
   render(){
     if (this.state.story === null){
