@@ -4,7 +4,9 @@ import Button, {postData} from '../Button';
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
 import RichText from '../RichText';
-import Container from '@material-ui/core/Container'
+import Container from '@material-ui/core/Container';
+import styles from './styles.module.css' 
+
 function StoryForm() {
 
     return (
@@ -22,7 +24,7 @@ function StoryForm() {
                 </Grid>
             </Grid>
             <RichText></RichText>
-            <Button onClick={postData}></Button>
+            <Button onClick={postData} className={styles.but}></Button>
         </div>
         </Container>
     );

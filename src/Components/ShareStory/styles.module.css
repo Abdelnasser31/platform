@@ -4,7 +4,7 @@
     color: #fff;
     margin: -20px;
     height: 700px;
-    background: url('https://static.wixstatic.com/media/02bcb2ff62a344a6973cea1a3271f57e.jpg/v1/fill/w_1920,h_1124,al_c,q_85,usm_0.66_1.00_0.01/02bcb2ff62a344a6973cea1a3271f57e.webp');
+    background: url('https://static.wixstatic.com/media/600c78_efb39744c2a24afcb9f5bebd45e9df3e~mv2_d_2500_1667_s_2.png/v1/fill/w_1920,h_1280,al_t,q_85,usm_0.66_1.00_0.01/600c78_efb39744c2a24afcb9f5bebd45e9df3e~mv2_d_2500_1667_s_2.webp');
     background-repeat: 'no-repeat';
     background-position: center;
     background-size: cover;
@@ -24,7 +24,7 @@
     }
 .overlay p {
     text-transform: uppercase;
-    width: 80%;
+    width: 500px;
     font-size: 45px;
 
 }

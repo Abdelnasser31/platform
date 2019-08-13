@@ -8,6 +8,7 @@ import StoriesList from './Containers/storiesList'
 import StoryPage from './Components/StoryPage'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
+import ShareStory from './Components/ShareStory';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={RecentStories}/>
           <Route path="/about" component={About}/>
+          <Route path="/share-story" component={ShareStory}/>
           <Route path="/stories" component={StoriesList}/>
           <Route path="/add-story" component={StoryForm}/>
           <Route path="/story/:id" component={StoryPage} />
