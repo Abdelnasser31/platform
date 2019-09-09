@@ -3,7 +3,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import gray from '@material-ui/core/colors/grey';
+import Button from '@material-ui/core/Button'
 import styles from './styles.module.css'
 import {Link} from 'react-router-dom'
 
@@ -53,9 +53,6 @@ export default function ScrollableTabsButtonAuto() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
-    setValue(newValue);
-  }
 
   return (
     <div className={classes.root}>
@@ -64,25 +61,36 @@ export default function ScrollableTabsButtonAuto() {
           
          </div>
           <div>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor= "gray[500]"
-          textColor="gray[900]"
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
-          flexContainer = "true"
-          
-        >
-         <Link to="/" className={styles.link} > <Tab label="Recent Stories" {...a11yProps(0)} className={classes.button}/></Link>
-      
-          <Link to="/stories" className={styles.link} ><Tab label="All Stories" {...a11yProps(1)} className={classes.button}/></Link>
-          <Link to="/share-story" className={styles.link} ><Tab label="Share Story" {...a11yProps(2)} className={classes.button}/></Link>
-          <Link to="/about" className={styles.link} ><Tab label="About" {...a11yProps(3)} className={classes.button}/></Link>
-          <Link to="/add-story" className={styles.link} ><Tab label="add Story" {...a11yProps(4)} className={classes.button}/></Link>
        
-        </Tabs>
+              
+         <Link to="/" className={styles.link} > <Button variant="contained" href="#contained-buttons" className={classes.button}>
+        Recent Stories
+      </Button></Link>
+      
+          <Link to="/stories" className={styles.link} >
+          <Button variant="contained" href="#contained-buttons" className={classes.button}>
+        All Stories
+      </Button>
+           </Link>
+
+          <Link to="/share-story" className={styles.link} >
+          <Button variant="contained" href="#contained-buttons" className={classes.button}>
+        Share Story
+      </Button>
+            </Link>
+          <Link to="/about" className={styles.link} >
+          <Button variant="contained" href="#contained-buttons" className={classes.button}>
+       About
+      </Button>
+            
+            </Link>
+          <Link to="/add-story" className={styles.link} >
+          <Button variant="contained" href="#contained-buttons" className={classes.button}>
+        Add Story
+      </Button>
+            </Link>
+       
+    
       
         </div>
       </AppBar>
