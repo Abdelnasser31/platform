@@ -1,43 +1,39 @@
-
-.introCardList {
-    padding-top:  "100px";
-}
 .header {
     width: 100%;
     margin-bottom: 24px;
-    --flex-direction: row !important;
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.brand {
+    width: 80px;
+    height: 60px;
+    background-image: url("https://static.wixstatic.com/media/600c78_618e8fc2e4334570aa49d2825fd9de13~mv2_d_2700_1762_s_2.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+
 }
 .link {
     min-height: 62px;   
+    padding-bottom: 27px;
     color: #888;
     border-bottom: 2px solid rgba(0,0,0,0);
     transition: all 0.3s ease-in-out;
     text-decoration: none
-
-
 }
-.button:hover{ 
+.link:hover{ 
     cursor: pointer;
     color: #222;
     border-bottom: 2px solid #333;
 }
-.link:visited, .button:visited{
+.link:visited{
     color: #222;
 }
 .button {
     min-height: 65px;
 }
 
-.brand {
-        width: 80px;
-        height: 60px;
-        background-image: url("https://static.wixstatic.com/media/600c78_618e8fc2e4334570aa49d2825fd9de13~mv2_d_2700_1762_s_2.png");
-        background-size: 80px;
-        background-repeat: no-repeat;
-
-}
-.bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
