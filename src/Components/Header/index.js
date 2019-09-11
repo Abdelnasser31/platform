@@ -2,25 +2,8 @@ import React from 'react';
 import Button from '@material-ui/core/Button'
 import styles from './styles.module.css'
 import {Link} from 'react-router-dom'
+import {tabs} from './../../constants'
 
-let tabs = [
-  {
-    to: '',
-    name: 'Recent Stories'
-  }, {
-    to: 'stories',
-    name: 'All Stories'
-  }, {
-    to: 'share-story',
-    name: 'Share Stories'
-  }, {
-    to: 'about',
-    name: 'About'
-  }, {
-    to: 'add-story',
-    name: 'Add a Story'
-  }
-];
 
 export default function ScrollableTabsButtonAuto() {
   return (
