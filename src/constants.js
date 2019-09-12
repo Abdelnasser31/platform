@@ -22,3 +22,13 @@ export const socialLinks = [
       name: 'Add Story'
     }
   ];
+
+  export const inputs = [{
+    id: 'title',
+    label: 'Title'
+  },
+  {
+    id: 'imageURL',
+    label: 'Image URL'
+  }
+]

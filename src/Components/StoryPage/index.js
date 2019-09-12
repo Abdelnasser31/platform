@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import  styles from './styles.module.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';

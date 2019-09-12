@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {dataFromRichText} from '../RichText'
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -15,7 +14,7 @@ const types = ['Education','Society','Economy','Art & Culture'];
 const locations = ['Syria','Turkey','Arab Countries','Europe','US & Canada'];
 const owners = ['Individual', 'Group'];
 
-export async function postData() {
+export async function postData(dataFromRichText) {
 const data = dataFromRichText;
 const titleInput = document.getElementById('title').value;
 const locationInput = document.getElementById('location').value;
