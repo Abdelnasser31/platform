@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Button, {postData} from '../Button';
+import Button from '@material-ui/core/Button';
+import {postData} from '../Actions/Postdata'
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
 import CKEditor from '@ckeditor/ckeditor5-react';
@@ -27,7 +28,7 @@ function StoryForm() {
           onChange={(event, editor) => {
           dataFromRichText = editor.getData();
         }}/>
-        <Button onClick={() => postData(dataFromRichText)} className={styles.but}></Button>
+        <Button onClick={() => postData(dataFromRichText)} className={styles.but}>Add a Story</Button>
       </div>
     </Container>
   );
