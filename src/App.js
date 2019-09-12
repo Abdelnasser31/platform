@@ -21,7 +21,7 @@ function App() {
           <Route path="/about" component={About}/>
           <Route path="/share-story" component={ShareStory}/>
           <Route path="/stories" component={StoriesList}/>
-          {/* <Route path="/admin-panel" component={StoryForm}/> */}
+          <Route path="/add-story" component={StoryForm}/>
           <Route path="/story/:id" component={StoryPage} />
           <Route path="/admin-panel" component={SignIn} />
         </Switch>
