@@ -1,4 +1,4 @@
-import {types, locations, owners} from '../../constants'
+import {types, locations, owners} from '../constants'
 export async function postData(dataFromRichText) {
     const data = dataFromRichText;
     const titleInput = document.getElementById('title').value;
