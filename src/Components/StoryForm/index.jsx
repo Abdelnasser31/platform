@@ -16,12 +16,6 @@ function StoryForm() {
     <Container>
       <div>
         <Grid container spacing={3}>
-          {/* <Grid item xs={4}>
-            <TitleInput id="title" label="Title"></TitleInput>
-          </Grid>
-          <Grid item xs={4}>
-            <TitleInput id="imageURL" label="Image url"></TitleInput>
-          </Grid> */}
           {inputs.map(input => <Grid item xs={4}>
             <TitleInput id={input.id} label={input.label}></TitleInput>
           </Grid>)}
