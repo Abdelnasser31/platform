@@ -32,3 +32,7 @@ export const socialLinks = [
     label: 'Image URL'
   }
 ]
+
+export const types = ['Education','Society','Economy','Art & Culture'];
+export const locations = ['Syria','Turkey','Arab Countries','Europe','US & Canada'];
+export const owners = ['Individual', 'Group'];
