@@ -11,7 +11,6 @@ import {inputs} from '../../constants'
 import styles from './styles.module.css'
 const firebase = require('firebase');
 require('firebase/firestore');
-
 var myFirebaseFirestoreTimestampFromDate = firebase.firestore.Timestamp.fromDate(new Date());
 let dataFromRichText = "";
 function StoryForm() {
