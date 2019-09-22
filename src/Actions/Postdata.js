@@ -1,21 +1,4 @@
-import {types, locations, owners} from '../constants'
-
-
-var today = new Date();
-var dd = today.getDate();
-
-var mm = today.getMonth() + 1;
-var yyyy = today.getFullYear();
-if (dd < 10) {
-  dd = '0' + dd;
-}
-
-if (mm < 10) {
-  mm = '0' + mm;
-}
-today =   yyyy + '-' +  mm  +  '-' +  dd;
-
-
+import {time, types, locations, owners} from '../constants'
 
 export async function postData(dataFromRichText) {
  
@@ -85,11 +68,11 @@ export async function postData(dataFromRichText) {
           stringValue: `${storyOwner}`
         },
         createTime: {
-          stringValue: `${today}`
+          stringValue: `${time}`
         }
       }
     })
   })
-  console.log(today);
+  console.log(time);
   window.location = '/stories'
 }

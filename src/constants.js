@@ -36,3 +36,19 @@ export const socialLinks = [
 export const types = ['Education','Society','Economy','Art & Culture'];
 export const locations = ['Syria','Turkey','Arab Countries','Europe','US & Canada'];
 export const owners = ['Individual', 'Group'];
+
+export var time = new Date();
+var dd = time.getDate();
+
+var mm = time.getMonth() + 1;
+var yyyy = time.getFullYear();
+var hh = time.getHours();
+var min = time.getMinutes();
+if (dd < 10) {
+  dd = '0' + dd;
+}
+
+if (mm < 10) {
+  mm = '0' + mm;
+}
+ time =   yyyy + '-' +  mm  +  '-' +  dd + ' ' + hh +':' + min;
