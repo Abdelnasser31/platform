@@ -19,6 +19,7 @@ export default class StoryPage extends React.Component{
   state = {
     story: null,
     viewsCount: 0,
+    favoritesCount: 0
   }
   componentDidMount() {
     this.storyId =  this.props.match.params;
@@ -50,12 +51,37 @@ export default class StoryPage extends React.Component{
    
    
   }
+  favoriteStory = () => {
+    console.log('clicked',this.storyId.id,this.state.favoritesCount)
+    this.setState({
+      favoritesCount: parseInt(this.state.favoritesCount) + 1
+    }, () => this.updateFavoritesCount());
+  }
+  updateFavoritesCount = async() => {
+    console.log('favourite count ',this.state.favoritesCount)
+    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=favouriteCount`
+    await fetch(url, {
+      method: 'PATCH',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        fields: {
+          favouriteCount: {
+            integerValue: this.state.favoritesCount
+          }
+        }
+      })
+    })
+  }
+
 
   fetchStory = async () =>{
     const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${window.location.href.split('/').pop()}`
     const response = await fetch(url);
     const json = await response.json();
-     this.setState({story: json},() => this.setState({viewCount: this.state.story.fields.viewCount.integerValue},() => this.updateViewsCount()))
+     this.setState({story: json},() => this.setState({viewCount: this.state.story.fields.viewCount.integerValue,
+    favoritesCount: this.state.story.fields.favouriteCount.integerValue},() => this.updateViewsCount()))
   }
   render(){
     if (this.state.story === null){
@@ -81,7 +107,7 @@ export default class StoryPage extends React.Component{
           <Box marginRight="auto">
             <IconButton aria-label="add to favorites" onClick={this.favoriteStory} className={styles.actions}>
 
-              <FavoriteIcon color="secondary"/> {this.state.story.fields.favouriteCount.integerValue < 2 ? (this.state.story.fields.favouriteCount.integerValue + " Like"): this.state.story.fields.favouriteCount.integerValue + " Likes"} 
+              <FavoriteIcon color="secondary"/> {this.state.favoritesCount < 2 ? (this.state.favoritesCount + " Like"): this.state.favoritesCount + " Likes"} 
 
             </IconButton>
           

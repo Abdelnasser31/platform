@@ -47,28 +47,7 @@ export default class Story extends React.Component {
       })
     })
   }
-  viewStory = () => {
-    this.setState({
-      viewsCount: this.state.viewsCount + 1
-    }, () => this.updateViewsCount());
-  }
-  updateViewsCount = async() => {
-    console.log(this.state.viewsCount, "here");
-    const url = `${BASE_URL}/${this.props.name}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
-    await fetch(url, {
-      method: 'PATCH',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: {
-          viewCount: {
-            integerValue: this.state.viewsCount
-          }
-        }
-      })
-    })
-  }
+
   render() {
     return (
       <Card className={styles.card}>
