@@ -19,6 +19,7 @@ export default function Stories({ stories, updateFavoritesCount}) {
                       favoritesCount = {story.doc.proto.fields.favouriteCount.integerValue}
                       updateFavoritesCount = {updateFavoritesCount}
                       viewsCount = {story.doc.proto.fields.viewCount.integerValue}
+                      storyTime = {story.doc.proto.fields.createTime.stringValue}
                       ></Story>
                      
                       </Grid>

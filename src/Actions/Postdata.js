@@ -13,7 +13,7 @@ export async function postData(dataFromRichText) {
   if (mm < 10) {
     mm = '0' + mm;
   }
-  today = dd + '-' + mm + '-' + yyyy;
+  today =   yyyy + '-' +  mm  +  '-' +  dd;
   const data = dataFromRichText;
   const titleInput = document
     .getElementById('title')
@@ -86,5 +86,5 @@ export async function postData(dataFromRichText) {
     })
   })
   console.log(today);
-  alert("successfully added to db")
+  window.location = '/stories'
 }

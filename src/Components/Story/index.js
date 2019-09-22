@@ -84,7 +84,7 @@ export default class Story extends React.Component {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2" className={styles.title}>
-                {this.props.storyTitle}
+                {this.props.storyTitle} - {this.props.storyTime}
               </Typography>
 
             </CardContent>

@@ -19,15 +19,18 @@ componentDidMount() {
     this.fetchStories();
 }
 fetchStories = async () => {
-   console.log(await db.collection('stories').orderBy('title').limit(3).get());
-    const response = await db.collection('stories').get();
-    const json = await response['_snapshot'].docChanges;
-    console.log(json)
+  let response = []
+
+   
+  
             if(this.props.number){
-            this.setState({stories: db.collection('stories').orderBy('createTime').limit(this.props.number)})
+              response = await db.collection('stories').orderBy('createTime', 'desc').limit(Number(this.props.number)).get();
         }else{
-    
-    this.setState({stories: json});}
+           response = await db.collection('stories').orderBy('createTime', 'desc').get();
+        }
+        const json = await response['_snapshot'].docChanges;
+        console.log(json)
+    this.setState({stories: json})
 }
 render () {
     if (this.state.stories === null){
