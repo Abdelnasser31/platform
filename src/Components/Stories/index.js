@@ -12,13 +12,13 @@ export default function Stories({ stories, updateFavoritesCount}) {
                   
                   <Grid item xs={3}>
                       <Story
-                      name= {story.name}
-                      storyTitle = {story.fields.title.stringValue}
-                      storyImage = {story.fields.imageURL.stringValue}
-                      storyDate = {story.createTime}
-                      favoritesCount = {story.fields.favouriteCount.integerValue}
+                      name= {story.doc.proto.name}
+                      storyTitle = {story.doc.proto.fields.title.stringValue}
+                      storyImage = {story.doc.proto.fields.imageURL.stringValue}
+                      storyDate = {story.doc.proto.createTime}
+                      favoritesCount = {story.doc.proto.fields.favouriteCount.integerValue}
                       updateFavoritesCount = {updateFavoritesCount}
-                      viewsCount = {story.fields.viewCount.integerValue}
+                      viewsCount = {story.doc.proto.fields.viewCount.integerValue}
                       ></Story>
                      
                       </Grid>
