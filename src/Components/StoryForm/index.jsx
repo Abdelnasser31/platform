@@ -9,9 +9,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Container from '@material-ui/core/Container';
 import {inputs} from '../../constants'
 import styles from './styles.module.css'
-const firebase = require('firebase');
-require('firebase/firestore');
-var myFirebaseFirestoreTimestampFromDate = firebase.firestore.Timestamp.fromDate(new Date());
+
 let dataFromRichText = "";
 function StoryForm() {
   return (
@@ -30,7 +28,7 @@ function StoryForm() {
           onChange={(event, editor) => {
           dataFromRichText = editor.getData();
         }}/>
-        <Button onClick={() => postData(dataFromRichText,myFirebaseFirestoreTimestampFromDate)} className={styles.but}>Add a Story</Button>
+        <Button onClick={() => postData(dataFromRichText)} className={styles.but}>Add a Story</Button>
       </div>
     </Container>
   );
