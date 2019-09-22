@@ -1,5 +1,6 @@
 import {types, locations, owners} from '../constants'
-export async function postData(dataFromRichText) {
+export async function postData(dataFromRichText,myFirebaseFirestoreTimestampFromDate) {
+    const date = myFirebaseFirestoreTimestampFromDate;
     const data = dataFromRichText;
     const titleInput = document.getElementById('title').value;
     const locationInput = document.getElementById('location').value;
@@ -11,10 +12,9 @@ export async function postData(dataFromRichText) {
     const imageInput = document.getElementById('imageURL').value;
     const defaultImage = 'https://static.wixstatic.com/media/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg/v1/fill/w_740,h_346,al_c,q_90,usm_0.66_1.00_0.01/600c78_f8fe5295769848c3aae681bbfcc21d8b~mv2.jpg';
     const imageURL = (imageInput == undefined || imageInput ==="") ? defaultImage : imageInput;
-    
     if (data === "" || titleInput === undefined || storyType === undefined || storyOwner === undefined || storyLocation === undefined){
      console.log(imageURL)
-      return (alert('bad input'));
+      return (alert(date));
     }
     
       const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories`
@@ -50,9 +50,13 @@ export async function postData(dataFromRichText) {
             },
               owner: {
                 stringValue: `${storyOwner}`
+              },
+              createTime: {
+                timestampValue: `${date}`
               }
           }
         })
       })
-      alert("successfully added to db")
+    
+      alert(`successfully add to db ${date}`)
     }
