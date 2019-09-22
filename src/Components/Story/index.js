@@ -26,28 +26,6 @@ export default class Story extends React.Component {
     favoritesCount: parseInt(this.props.favoritesCount),
     viewsCount: parseInt(this.props.viewsCount)
   }
-  favoriteStory = () => {
-    this.setState({
-      favoritesCount: this.state.favoritesCount + 1
-    }, () => this.updateFavoritesCount());
-  }
-  updateFavoritesCount = async() => {
-    const url = `${BASE_URL}/${this.props.name}?currentDocument.exists=true&updateMask.fieldPaths=favouriteCount`
-    await fetch(url, {
-      method: 'PATCH',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: {
-          favouriteCount: {
-            integerValue: this.state.favoritesCount
-          }
-        }
-      })
-    })
-  }
-
   render() {
     return (
       <Card className={styles.card}>
