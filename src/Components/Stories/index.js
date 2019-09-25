@@ -10,7 +10,7 @@ export default function Stories({ stories, updateFavoritesCount}) {
           {
               stories.map(story => (
                   
-                  <Grid item xs={3}>
+                  <Grid item xs={8} sm={6} md={4} lg={3}>
                       <Story
                       name= {story.doc.proto.name}
                       storyTitle = {story.doc.proto.fields.title.stringValue}

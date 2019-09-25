@@ -1,23 +1,29 @@
 import React from 'react';
-import Button from '@material-ui/core/Button'
 import styles from './styles.module.css'
 import {Link} from 'react-router-dom'
 import {tabs} from './../../constants'
+import  {Navbar, Nav, Container} from 'react-bootstrap'
 
 
 export default function ScrollableTabsButtonAuto() {
   return (
-    <div className={styles.header}>
-      <div className={styles.bar}>
-        <div className={styles.brand}></div>
-        <div>
-          {tabs.map(link => <Link to={`/${link.to}`} className={styles.link}>
-            <Button className={styles.button}>
-              {link.name}
-            </Button>
-          </Link>)}
-        </div>
-      </div>
-    </div>
+    
+        <Navbar bg="light" expand="lg" className={`${styles.nav} p-0`}>
+      <Container>
+        <Navbar.Brand className={styles.brand}></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" >
+            <Nav className='ml-auto'>
+          {tabs.map(link => 
+            
+             <Link className={styles.link} to={`/${link.to}`}> {link.name} </Link>
+         
+          )}
+          </Nav>
+        </Navbar.Collapse>
+        </Container>
+    </Navbar>
+  
+  
   );
 }
