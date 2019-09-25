@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import styles from './styles.module.css';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Hidden from '@material-ui/core/Hidden';
+
 import 'typeface-roboto';
 
 function ShareStory() {
