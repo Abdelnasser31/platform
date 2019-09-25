@@ -33,46 +33,46 @@ export async function postData(dataFromRichText) {
     return (alert('bad input'));
   }
 
-  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo`
-  await fetch(url, {
-    method: 'POST',
-    header: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      fields: {
-        type: {
-          stringValue: `${storyType}`
-        },
-        storyRichText: {
-          stringValue: `${dataFromRichText}`
-        },
-        title: {
+  // const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo`
+  // await fetch(url, {
+  //   method: 'POST',
+  //   header: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     fields: {
+  //       type: {
+  //         stringValue: `${storyType}`
+  //       },
+  //       storyRichText: {
+  //         stringValue: `${dataFromRichText}`
+  //       },
+  //       title: {
 
-          stringValue: `${titleInput}`
+  //         stringValue: `${titleInput}`
 
-        },
-        imageURL: {
-          stringValue: `${imageURL}`
-        },
-        favouriteCount: {
-          integerValue: 0
-        },
-        viewCount: {
-          integerValue: 0
-        },
-        location: {
-          stringValue: `${storyLocation}`
-        },
-        owner: {
-          stringValue: `${storyOwner}`
-        },
-        createTime: {
-          stringValue: `${time}`
-        }
-      }
-    })
-  })
-  console.log(time);
+  //       },
+  //       imageURL: {
+  //         stringValue: `${imageURL}`
+  //       },
+  //       favouriteCount: {
+  //         integerValue: 0
+  //       },
+  //       viewCount: {
+  //         integerValue: 0
+  //       },
+  //       location: {
+  //         stringValue: `${storyLocation}`
+  //       },
+  //       owner: {
+  //         stringValue: `${storyOwner}`
+  //       },
+  //       createTime: {
+  //         stringValue: `${time}`
+  //       }
+  //     }
+  //   })
+  // })
+  // console.log(time);
   alert(`the input was valid but we can't give you permession to add your story, instead you can contact us : )`)
 }
