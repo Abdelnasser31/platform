@@ -33,7 +33,7 @@ export async function postData(dataFromRichText) {
     return (alert('bad input'));
   }
 
-  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories-demo`
+  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo`
   await fetch(url, {
     method: 'POST',
     header: {
@@ -74,5 +74,5 @@ export async function postData(dataFromRichText) {
     })
   })
   console.log(time);
-  window.location = '/stories'
+  alert(`the input was valid but we can't give you permession to add your story, instead you can contact us : )`)
 }

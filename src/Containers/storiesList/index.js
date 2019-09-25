@@ -4,7 +4,7 @@ import Spinner from '../../Components/Spinner'
 const firebase = require('firebase');
 require('firebase/firestore');
 
-firebase.initializeApp({apiKey: ' AIzaSyBOrbITN0d8aCYV0hSZTnuilXRfDx2f9_Q ', authDomain: 'https://syrian-success-story.firebaseapp.com/', projectId: 'syrian-success-story'})
+firebase.initializeApp({apiKey: 'AIzaSyAPOafqa-pZmAG2sw4swhChVPPknefraPQ ', authDomain: 'https://syrian-success-story-demo.firebaseapp.com', projectId: 'syrian-success-story-demo'})
 let db = firebase.firestore();
 export default class StoriesList extends React.Component {
   state = {
