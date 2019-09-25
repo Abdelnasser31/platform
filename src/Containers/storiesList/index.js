@@ -18,13 +18,13 @@ export default class StoriesList extends React.Component {
 
     if (this.props.number) {
       response = await db
-        .collection('stories')
+        .collection('stories-demo')
         .orderBy('createTime', 'desc')
         .limit(Number(this.props.number))
         .get();
     } else {
       response = await db
-        .collection('stories')
+        .collection('stories-demo')
         .orderBy('createTime', 'desc')
         .get();
     }

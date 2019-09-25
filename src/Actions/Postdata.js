@@ -33,7 +33,7 @@ export async function postData(dataFromRichText) {
     return (alert('bad input'));
   }
 
-  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories`
+  const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories-demo`
   await fetch(url, {
     method: 'POST',
     header: {

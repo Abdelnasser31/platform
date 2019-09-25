@@ -100,7 +100,7 @@ export default class StoryPage extends React.Component {
   }
   updateFavoritesCount = async() => {
     console.log('favourite count ', this.state.favoritesCount)
-    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=favouriteCount`
+    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories-demo/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=favouriteCount`
     await fetch(url, {
       method: 'PATCH',
       header: {
@@ -117,7 +117,7 @@ export default class StoryPage extends React.Component {
   }
 
   fetchStory = async() => {
-    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories/${window
+    const url = `${BASE_URL}/projects/syrian-success-story/databases/(default)/documents/stories-demo/${window
       .location
       .href
       .split('/')
