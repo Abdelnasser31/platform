@@ -16,10 +16,10 @@ function StoryForm() {
     <Container>
       <div>
         <Grid container spacing={3}>
-          {inputs.map(input => <Grid item xs={4}>
+          {inputs.map(input => <Grid xs={6} lg={4}>
             <TitleInput id={input.id} label={input.label}></TitleInput>
           </Grid>)}
-          <Grid item xs={4}>
+          <Grid item xs={6} lg={4}>
             <Selectors></Selectors>
           </Grid>
         </Grid>

@@ -6,6 +6,10 @@
     margin-bottom: 40px;
     margin-top: 40px;
   }
+  @media only screen and (max-width: 600px){
+    .card{ min-width: 445;
+  }
+}
   .actions{
     color: #d7d7d7 !important
   }
