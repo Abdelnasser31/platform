@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
 import Spinner from '../../Components/Spinner'
 import {Button, Form, FormControl} from 'react-bootstrap'
+import Selectors from '../../Components/Selectors'
+import {types, locations, owners} from '../../constants'
 const firebase = require('firebase');
 require('firebase/firestore');
 
@@ -17,17 +19,17 @@ export default class StoriesList extends React.Component {
     this.fetchStories();
   }
   fetchStories = async(text) => {
-    
     let response = []
     let query;
-    if(text){
+    if (text) {
+        query = stories
+          .where('title', '==', text)
+          .get();
+          console.log(query);
+    } else {
       query = stories
-      .where('owner', '==', text)
-      .get();
-    }else{
-      query = stories
-      .orderBy('createTime', 'desc')
-      .get();
+        .orderBy('createTime', 'desc')
+        .get();
     }
     if (this.props.number) {
       response = await db
@@ -37,7 +39,6 @@ export default class StoriesList extends React.Component {
         .get();
 
     } else {
-      console.log(text);
       response = await query;
       console.log('Iam here ', response);
     }
@@ -51,8 +52,6 @@ export default class StoriesList extends React.Component {
     let text = document
       .getElementById('search')
       .value;
-    console.log(text);
-
     this.fetchStories(text);
     e.preventDefault();
   }
@@ -67,7 +66,7 @@ export default class StoriesList extends React.Component {
 
         <Form inline className='text-center' onSubmit={this.filter}>
           <div className='mx-auto'>
-            <FormControl type="text" id='search' placeholder="Search" className=" mr-sm-2"/>
+            <FormControl type="text" id='search' placeholder="Search By Title" className=" mr-sm-2"/>
             <Button type="submit">Search</Button>
           </div>
         </Form>
