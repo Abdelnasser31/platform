@@ -7,7 +7,7 @@ require('firebase/firestore');
 
 firebase.initializeApp({apiKey: 'AIzaSyAPOafqa-pZmAG2sw4swhChVPPknefraPQ ', authDomain: 'https://syrian-success-story-demo.firebaseapp.com', projectId: 'syrian-success-story-demo'})
 let db = firebase.firestore();
-let stories = db.collection('stories');
+let stories = db.collection('stories-demo');
 
 export default class StoriesList extends React.Component {
   state = {
@@ -37,15 +37,8 @@ export default class StoriesList extends React.Component {
         .get();
 
     } else {
-<<<<<<< HEAD
-      response = await db
-        .collection('stories-demo')
-        .orderBy('createTime', 'desc')
-        .get();
-=======
       response = await query;
       console.log('Iam here ', response);
->>>>>>> responsive
     }
     const json = await response['_snapshot'].docChanges;
     console.log(json)
