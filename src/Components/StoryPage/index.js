@@ -138,7 +138,7 @@ export default class StoryPage extends React.Component {
       viewsCount: parseInt(this.state.story.fields.viewCount.integerValue) + 1
     }, async() => {
       console.log('before the fetch', this.state.viewsCount);
-      const url = `${BASE_URL}/projects/syrian-success-story-demo/databases/(default)/documents/stories/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
+      const url = `${BASE_URL}/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo/${this.storyId.id}?currentDocument.exists=true&updateMask.fieldPaths=viewCount`
       await fetch(url, {
         method: 'PATCH',
         header: {
