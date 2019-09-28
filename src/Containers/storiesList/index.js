@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
-import {Grid} from '@material-ui/core'
-import TitleInput from '../../Components/TitleInput'
 import Spinner from '../../Components/Spinner'
 import {Button, Form, FormControl} from 'react-bootstrap'
-import {inputs} from '../../constants'
 const firebase = require('firebase');
 require('firebase/firestore');
 
@@ -70,9 +67,6 @@ export default class StoriesList extends React.Component {
 
         <Form inline className='text-center' onSubmit={this.filter}>
           <div className='mx-auto'>
-          {inputs.map(input => <Grid item xs={4}>
-            <TitleInput id={input.id} label={input.label}></TitleInput>
-          </Grid>)}
             <FormControl type="text" id='search' placeholder="Search" className=" mr-sm-2"/>
             <Button type="submit">Search</Button>
           </div>
