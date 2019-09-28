@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
 import Spinner from '../../Components/Spinner'
 import {Button, Form, FormControl} from 'react-bootstrap'
-import Selectors from '../../Components/Selectors'
-import {types, locations, owners} from '../../constants'
 const firebase = require('firebase');
 require('firebase/firestore');
 
