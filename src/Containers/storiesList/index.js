@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react"
 import StoriesComponent from "../../Components/Stories"
+import FilterForm from '../../Components/FilterForm'
 import Spinner from '../../Components/Spinner'
-import {Button, Form, FormControl} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 const firebase = require('firebase');
 require('firebase/firestore');
 
@@ -21,16 +22,16 @@ export default class StoriesList extends React.Component {
   componentDidMount() {
     this.fetchStories();
   }
-  fetchStories = async(text, exeQuery) => {
+  fetchStories = async(text, exeQuery = null) => {
     let response = []
    
     if (text) {
       query = stories
         .where('title', '==', text)
-        .get();
+        response = await query.get();
 
     }
-    if (this.props.number) {
+    else if (this.props.number) {
       response = await db
         .collection('stories')
         .orderBy('createTime', 'desc')
@@ -38,7 +39,7 @@ export default class StoriesList extends React.Component {
         .get();
 
     } else {
-      if(exeQuery) {console.log('exe'); response = await exeQuery.get();}
+      if(exeQuery !== null) { response = await exeQuery.get(); exeQuery = null}
       else         response = await query.get();
     }
     const json = await response['_snapshot'].docChanges;
@@ -51,10 +52,11 @@ export default class StoriesList extends React.Component {
   }
 
   filter = (e) => {
-
+    console.log('filtering')
     let text = document
       .getElementById('search')
       .value;
+      console.log(text)
     this.fetchStories(text);
     e.preventDefault();
   }
@@ -63,7 +65,7 @@ export default class StoriesList extends React.Component {
     query = query.startAfter(this.state.stories[this.state.stories.length - 1].doc.proto.fields.createTime.stringValue);
     firstStory += 3;
     this.setState({stories: null});
-    this.fetchStories(false,query);
+    this.fetchStories(false);
     
   }
   getPrevPage = (e) => {
@@ -79,7 +81,7 @@ export default class StoriesList extends React.Component {
     if (this.state.stories.length === 0) {
       return(
         <div>
-          <p>no stories left get back</p> 
+          <p>No More stories left, get back</p> 
           <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button>
             
         </div>
@@ -88,16 +90,7 @@ export default class StoriesList extends React.Component {
     if (!this.props.number) {
       return (
         <div>
-          <Form inline className='text-center' onSubmit={this.filter}>
-            <div className='mx-auto'>
-              <FormControl
-                type="text"
-                id='search'
-                placeholder="Search By Title"
-                className=" mr-sm-2"/>
-              <Button type="submit">Search</Button>
-            </div>
-          </Form>
+         <FilterForm onSubmit={this.filter} />
           <StoriesComponent
             stories={this.state.stories}
             updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
