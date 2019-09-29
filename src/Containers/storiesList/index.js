@@ -59,9 +59,9 @@ export default class StoriesList extends React.Component {
         <Spinner></Spinner>
       )
     }
-    return (
-      <div>
-
+   
+        if (!this.props.number) { return (
+          <div>
         <Form inline className='text-center' onSubmit={this.filter}>
           <div className='mx-auto'>
             <FormControl type="text" id='search' placeholder="Search By Title" className=" mr-sm-2"/>
@@ -72,6 +72,13 @@ export default class StoriesList extends React.Component {
           stories={this.state.stories}
           updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
       </div>
-    )
+        )
+      
+      
+      }
+      return    <StoriesComponent
+      stories={this.state.stories}
+      updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
+  
   }
 }
