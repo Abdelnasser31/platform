@@ -8,17 +8,12 @@ require('firebase/firestore');
 
 firebase.initializeApp({apiKey: 'AIzaSyAPOafqa-pZmAG2sw4swhChVPPknefraPQ ', authDomain: 'https://syrian-success-story-demo.firebaseapp.com', projectId: 'syrian-success-story-demo'})
 let db = firebase.firestore();
-<<<<<<< HEAD
 let stories = db.collection('stories-demo');
-
-=======
-let stories = db.collection('stories');
 let firstStory  = 1;
 let lastStory = 0;
 let prevButtonHidden = true;
 let query = stories
 .orderBy('createTime', 'desc').limit(3);
->>>>>>> pagination
 export default class StoriesList extends React.Component {
   state = {
     stories: null,
@@ -57,11 +52,9 @@ export default class StoriesList extends React.Component {
   }
 
   filter = (e) => {
-    console.log('filtering')
     let text = document
       .getElementById('search')
       .value;
-      console.log(text)
     this.fetchStories(text);
     e.preventDefault();
   }
