@@ -8,27 +8,27 @@ require('firebase/firestore');
 firebase.initializeApp({apiKey: ' AIzaSyBOrbITN0d8aCYV0hSZTnuilXRfDx2f9_Q ', authDomain: 'https://syrian-success-story.firebaseapp.com/', projectId: 'syrian-success-story'})
 let db = firebase.firestore();
 let stories = db.collection('stories');
-
+let firstStory  = 1;
+let lastStory = 0;
+let prevButtonHidden = true;
+let query = stories
+.orderBy('createTime', 'desc').limit(3);
 export default class StoriesList extends React.Component {
   state = {
     stories: null,
-    pages: 'display the first three results'
+    pages: `display stoires from ${firstStory} to ${lastStory}`,
   }
   componentDidMount() {
     this.fetchStories();
   }
-  fetchStories = async(text) => {
+  fetchStories = async(text, exeQuery) => {
     let response = []
-    let query;
+   
     if (text) {
       query = stories
         .where('title', '==', text)
         .get();
-      console.log(query);
-    } else {
-      query = stories
-        .orderBy('createTime', 'desc')
-        .get();
+
     }
     if (this.props.number) {
       response = await db
@@ -38,12 +38,16 @@ export default class StoriesList extends React.Component {
         .get();
 
     } else {
-      response = await query;
-      console.log('Iam here ', response);
+      if(exeQuery) {console.log('exe'); response = await exeQuery.get();}
+      else         response = await query.get();
     }
     const json = await response['_snapshot'].docChanges;
-    console.log(json)
-    this.setState({stories: json})
+
+    
+    this.setState({stories: json},() => {
+      lastStory += this.state.stories.length;
+      this.setState({pages: `Display stories from ${firstStory} to ${lastStory}`})}
+      )
   }
 
   filter = (e) => {
@@ -54,13 +58,33 @@ export default class StoriesList extends React.Component {
     this.fetchStories(text);
     e.preventDefault();
   }
+  getNextPage = (e) =>{
+    prevButtonHidden = false;
+    query = query.startAfter(this.state.stories[this.state.stories.length - 1].doc.proto.fields.createTime.stringValue);
+    firstStory += 3;
+    this.setState({stories: null});
+    this.fetchStories(false,query);
+    
+  }
+  getPrevPage = (e) => {
+    window.location.href = '/stories';
+
+  }
   render() {
     if (this.state.stories === null) {
       return (
         <Spinner></Spinner>
       )
     }
-
+    if (this.state.stories.length === 0) {
+      return(
+        <div>
+          <p>no stories left get back</p> 
+          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button>
+            
+        </div>
+      )
+    }
     if (!this.props.number) {
       return (
         <div>
@@ -78,9 +102,9 @@ export default class StoriesList extends React.Component {
             stories={this.state.stories}
             updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
               <div>
-            <Button variant='outline-danger' disabled>Prev</Button>
-            {this.state.pages}
-            <Button variant='outline-primary'>Next</Button>
+            <Button variant='outline-danger' id="prev" onClick={this.getPrevPage} hidden={prevButtonHidden}>Back</Button>
+             <span className='px-2'>{this.state.pages}</span>
+            <Button variant='outline-primary' onClick={this.getNextPage}>Next</Button>
           </div>
         </div>
       )
@@ -91,8 +115,6 @@ export default class StoriesList extends React.Component {
         <StoriesComponent
           stories={this.state.stories}
           updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
-
-        
       </div>
     )
   }
