@@ -1,4 +1,5 @@
 import {time, types, locations, owners} from '../constants'
+import { string } from 'prop-types';
 
 export async function postData(dataFromRichText) {
  
@@ -34,6 +35,15 @@ export async function postData(dataFromRichText) {
   }
 
   const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story/databases/(default)/documents/stories`
+  const titletags = titleInput.split(' ');
+  const tags1 = [...titletags, storyType, storyLocation, storyOwner];
+ //TODO values is an array contains objects
+ const valuesString = [];
+ tags1.map((element,index) => {
+  valuesString.push({'stringValue': element})
+ })
+ console.log('this is ', valuesString);
+  console.log(tags1);
   await fetch(url, {
     method: 'POST',
     header: {
@@ -69,10 +79,13 @@ export async function postData(dataFromRichText) {
         },
         createTime: {
           stringValue: `${time}`
+        },
+        tags: {
+          arrayValue: {values: [...valuesString]}
         }
       }
     })
   })
   console.log(time);
-  window.location = '/stories'
+  // window.location = '/stories'
 }

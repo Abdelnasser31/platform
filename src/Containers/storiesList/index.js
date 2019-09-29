@@ -27,7 +27,7 @@ export default class StoriesList extends React.Component {
    
     if (text) {
       query = stories
-        .where('title', '==', text)
+        .where('tags', "array-contains", text)
         response = await query.get();
 
     }
@@ -43,11 +43,12 @@ export default class StoriesList extends React.Component {
       else         response = await query.get();
     }
     const json = await response['_snapshot'].docChanges;
-
+    console.log(json)
     
     this.setState({stories: json},() => {
       lastStory += this.state.stories.length;
-      this.setState({pages: `Display stories from ${firstStory} to ${lastStory}`})}
+      this.setState({pages: `Display stories from ${firstStory} to ${lastStory}`})
+    console.log(this.state.stories[1].doc.proto.fields.array)}
       )
   }
 
