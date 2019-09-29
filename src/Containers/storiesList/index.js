@@ -8,8 +8,8 @@ require('firebase/firestore');
 
 firebase.initializeApp({apiKey: ' AIzaSyBOrbITN0d8aCYV0hSZTnuilXRfDx2f9_Q ', authDomain: 'https://syrian-success-story.firebaseapp.com/', projectId: 'syrian-success-story'})
 let db = firebase.firestore();
+let isFiltered = false;
 let stories = db.collection('stories');
-let prevButtonHidden = true;
 let query = stories
 .orderBy('createTime', 'desc').limit(3);
 export default class StoriesList extends React.Component {
@@ -46,6 +46,7 @@ export default class StoriesList extends React.Component {
   }
 
   filter = (e) => {
+    isFiltered = !isFiltered;
     this.setState({stories: null})
     console.log('filtering')
     let text = document
@@ -56,13 +57,12 @@ export default class StoriesList extends React.Component {
     e.preventDefault();
   }
   getNextPage = (e) =>{
-    prevButtonHidden = false;
     query = query.startAfter(this.state.stories[this.state.stories.length - 1].doc.proto.fields.createTime.stringValue);
     this.setState({stories: null});
     this.fetchStories(false);
     
   }
-  getPrevPage = (e) => {
+  goToStart = (e) => {
     window.location.href = '/stories';
 
   }
@@ -76,7 +76,7 @@ export default class StoriesList extends React.Component {
       return(
         <div>
           <p>No More stories left, get back</p> 
-          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button> 
+          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.goToStart}>Back</Button> 
         </div>
       )
     }
@@ -88,7 +88,8 @@ export default class StoriesList extends React.Component {
             stories={this.state.stories}
             updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
               <div>
-            <Button variant='outline-primary' onClick={this.getNextPage}>More Stories</Button>
+              <Button variant='outline-primary' onClick={this.goToStart} hidden={!isFiltered}>Clear Filter</Button>
+            <Button variant='outline-primary' onClick={this.getNextPage} hidden={isFiltered}>More Stories >></Button>
           </div>
         </div>
       )
