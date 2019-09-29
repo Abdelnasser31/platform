@@ -8,16 +8,13 @@ require('firebase/firestore');
 
 firebase.initializeApp({apiKey: 'AIzaSyAPOafqa-pZmAG2sw4swhChVPPknefraPQ ', authDomain: 'https://syrian-success-story-demo.firebaseapp.com', projectId: 'syrian-success-story-demo'})
 let db = firebase.firestore();
+let isFiltered = false;
 let stories = db.collection('stories-demo');
-let firstStory  = 1;
-let lastStory = 0;
-let prevButtonHidden = true;
 let query = stories
 .orderBy('createTime', 'desc').limit(3);
 export default class StoriesList extends React.Component {
   state = {
     stories: null,
-    pages: `display stoires from ${firstStory} to ${lastStory}`,
   }
   componentDidMount() {
     this.fetchStories();
@@ -44,14 +41,14 @@ export default class StoriesList extends React.Component {
     }
     const json = await response['_snapshot'].docChanges;
 
-    
-    this.setState({stories: json},() => {
-      lastStory += this.state.stories.length;
-      this.setState({pages: `Display stories from ${firstStory} to ${lastStory}`})}
-      )
+    console.log(json);
+    this.setState({stories: json})
   }
 
   filter = (e) => {
+    isFiltered = !isFiltered;
+    this.setState({stories: null})
+    console.log('filtering')
     let text = document
       .getElementById('search')
       .value;
@@ -59,14 +56,12 @@ export default class StoriesList extends React.Component {
     e.preventDefault();
   }
   getNextPage = (e) =>{
-    prevButtonHidden = false;
     query = query.startAfter(this.state.stories[this.state.stories.length - 1].doc.proto.fields.createTime.stringValue);
-    firstStory += 3;
     this.setState({stories: null});
     this.fetchStories(false);
     
   }
-  getPrevPage = (e) => {
+  goToStart = (e) => {
     window.location.href = '/stories';
 
   }
@@ -80,7 +75,7 @@ export default class StoriesList extends React.Component {
       return(
         <div>
           <p>No More stories left, get back</p> 
-          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button> 
+          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.goToStart}>Back</Button> 
         </div>
       )
     }
@@ -92,9 +87,8 @@ export default class StoriesList extends React.Component {
             stories={this.state.stories}
             updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
               <div>
-            <Button variant='outline-danger' id="prev" onClick={this.getPrevPage} hidden={prevButtonHidden}>Back</Button>
-             <span className='px-2'>{this.state.pages}</span>
-            <Button variant='outline-primary' onClick={this.getNextPage}>Next</Button>
+              <Button variant='outline-primary' onClick={this.goToStart} hidden={!isFiltered}>Clear Filter</Button>
+            <Button variant='outline-primary' onClick={this.getNextPage} hidden={isFiltered}>More Stories >></Button>
           </div>
         </div>
       )
