@@ -11,7 +11,8 @@ let stories = db.collection('stories');
 
 export default class StoriesList extends React.Component {
   state = {
-    stories: null
+    stories: null,
+    pages: 'display the first three results'
   }
   componentDidMount() {
     this.fetchStories();
@@ -20,10 +21,10 @@ export default class StoriesList extends React.Component {
     let response = []
     let query;
     if (text) {
-        query = stories
-          .where('title', '==', text)
-          .get();
-          console.log(query);
+      query = stories
+        .where('title', '==', text)
+        .get();
+      console.log(query);
     } else {
       query = stories
         .orderBy('createTime', 'desc')
@@ -59,26 +60,40 @@ export default class StoriesList extends React.Component {
         <Spinner></Spinner>
       )
     }
-   
-        if (!this.props.number) { return (
-          <div>
-        <Form inline className='text-center' onSubmit={this.filter}>
-          <div className='mx-auto'>
-            <FormControl type="text" id='search' placeholder="Search By Title" className=" mr-sm-2"/>
-            <Button type="submit">Search</Button>
+
+    if (!this.props.number) {
+      return (
+        <div>
+          <Form inline className='text-center' onSubmit={this.filter}>
+            <div className='mx-auto'>
+              <FormControl
+                type="text"
+                id='search'
+                placeholder="Search By Title"
+                className=" mr-sm-2"/>
+              <Button type="submit">Search</Button>
+            </div>
+          </Form>
+          <StoriesComponent
+            stories={this.state.stories}
+            updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
+              <div>
+            <Button variant='outline-danger' disabled>Prev</Button>
+            {this.state.pages}
+            <Button variant='outline-primary'>Next</Button>
           </div>
-        </Form>
+        </div>
+      )
+
+    }
+    return (
+      <div>
         <StoriesComponent
           stories={this.state.stories}
           updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
+
+        
       </div>
-        )
-      
-      
-      }
-      return    <StoriesComponent
-      stories={this.state.stories}
-      updateFavoritesCount={this.updateFavoritesCount}></StoriesComponent>
-  
+    )
   }
 }
