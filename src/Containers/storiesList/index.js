@@ -82,8 +82,7 @@ export default class StoriesList extends React.Component {
       return(
         <div>
           <p>No More stories left, get back</p> 
-          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button>
-            
+          <Button variant='outline-danger' id="prev" disabled={false} onClick={this.getPrevPage}>Back</Button> 
         </div>
       )
     }
