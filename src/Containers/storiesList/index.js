@@ -24,7 +24,7 @@ export default class StoriesList extends React.Component {
    
     if (text) {
       query = stories
-        .where('title', '==', text).orderBy('createTime', 'desc')
+        .where('title', '==', text)
         response = await query.get();
 
     }
