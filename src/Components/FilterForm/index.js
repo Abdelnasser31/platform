@@ -9,7 +9,7 @@ export class index extends Component {
             <FormControl
               type="text"
               id='search'
-              placeholder="Search By Title"
+              placeholder="Search By ..."
               className=" mr-sm-2"/>
             <Button type="submit">Search</Button>
           </div>
