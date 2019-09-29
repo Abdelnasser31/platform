@@ -24,7 +24,7 @@ export default class StoriesList extends React.Component {
    
     if (text) {
       query = stories
-        .where('title', '==', text)
+        .where('tags', "array-contains", text)
         response = await query.get();
 
     }
@@ -46,12 +46,12 @@ export default class StoriesList extends React.Component {
   }
 
   filter = (e) => {
-    isFiltered = !isFiltered;
+    isFiltered = true;
     this.setState({stories: null})
     console.log('filtering')
     let text = document
       .getElementById('search')
-      .value;
+      .value.toLowerCase();
     this.fetchStories(text);
     e.preventDefault();
   }
