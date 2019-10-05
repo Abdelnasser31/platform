@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/Button';
 import {postData} from '../../Actions/Postdata'
 import Selectors from '../Selectors';
 import TitleInput from '../TitleInput';
@@ -28,7 +28,7 @@ function StoryForm() {
           onChange={(event, editor) => {
           dataFromRichText = editor.getData();
         }}/>
-        <Button onClick={() => postData(dataFromRichText)} className={styles.but}>Add a Story</Button>
+        <Button variant="outline-dark" onClick={() => postData(dataFromRichText)} className={styles.but}>Add a Story</Button>
       </div>
     </Container>
   );

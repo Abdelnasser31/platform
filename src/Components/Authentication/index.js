@@ -59,8 +59,7 @@ export default class SignInScreen extends React.Component {
     return (
       <div>
         <h1>Add A story</h1>
-        <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-        <Button variant='info' onClick={() => firebase.auth().signOut()}>Sign-out</Button>
+        <Button variant='outline-danger' onClick={() => firebase.auth().signOut()} className='mb-3' >Sign-out</Button>
         <StoryForm />
       </div>
     );
