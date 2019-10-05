@@ -17,9 +17,6 @@ export const socialLinks = [
     }, {
       to: 'about',
       name: 'About'
-    }, {
-      to: 'add-story',
-      name: 'Add Story'
     }
   ];
 
