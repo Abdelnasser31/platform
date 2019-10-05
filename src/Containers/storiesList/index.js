@@ -11,7 +11,7 @@ let db = firebase.firestore();
 let isFiltered = false;
 let stories = db.collection('stories-demo');
 let query = stories
-.orderBy('createTime', 'desc').limit(3);
+.orderBy('createTime', 'desc').limit(8);
 export default class StoriesList extends React.Component {
   state = {
     stories: null,
