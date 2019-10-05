@@ -34,59 +34,58 @@ export async function postData(dataFromRichText) {
     return (alert('bad input'));
   }
 
-//    const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo`
-//   const titletags = titleInput.toLowerCase().split(' ');
-//   const tags1 = [...titletags, titleInput , storyType, storyLocation, storyOwner];
-//  //TODO values is an array contains objects
-//  const valuesString = [];
-//  tags1.map((element,index) => {
-//   valuesString.push({'stringValue': element})
-//  })
-//  console.log('this is ', valuesString);
-//   console.log(tags1);
-//   await fetch(url, {
-//     method: 'POST',
-//     header: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       fields: {
-//         type: {
-//           stringValue: `${storyType}`
-//         },
-//         storyRichText: {
-//           stringValue: `${dataFromRichText}`
-//         },
-//         title: {
+   const url = `https://firestore.googleapis.com/v1/projects/syrian-success-story-demo/databases/(default)/documents/stories-demo`
+  const titletags = titleInput.toLowerCase().split(' ');
+  const tags1 = [...titletags, titleInput , storyType, storyLocation, storyOwner];
+ //TODO values is an array contains objects
+ const valuesString = [];
+ tags1.map((element,index) => {
+  valuesString.push({'stringValue': element})
+ })
+ console.log('this is ', valuesString);
+  console.log(tags1);
+  await fetch(url, {
+    method: 'POST',
+    header: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      fields: {
+        type: {
+          stringValue: `${storyType}`
+        },
+        storyRichText: {
+          stringValue: `${dataFromRichText}`
+        },
+        title: {
 
-//        stringValue: `${titleInput}`
+       stringValue: `${titleInput}`
 
-//         },
-//         imageURL: {
-//           stringValue: `${imageURL}`
-//         },
-//         favouriteCount: {
-//           integerValue: 0
-//         },
-//         viewCount: {
-//           integerValue: 0
-//         },
-//         location: {
-//           stringValue: `${storyLocation}`
-//         },
-//         owner: {
-//           stringValue: `${storyOwner}`
-//         },
-//         createTime: {
-//           stringValue: `${time}`
-//         },
-//         tags: {
-//           arrayValue: {values: [...valuesString]}
-//         }
-//       }
-//     })
-//   })
-//   console.log(time);
-  alert(`the input was valid but we can't give you permession to add your story, instead you can contact us : )`)
-  // window.location = '/stories'
+        },
+        imageURL: {
+          stringValue: `${imageURL}`
+        },
+        favouriteCount: {
+          integerValue: 0
+        },
+        viewCount: {
+          integerValue: 0
+        },
+        location: {
+          stringValue: `${storyLocation}`
+        },
+        owner: {
+          stringValue: `${storyOwner}`
+        },
+        createTime: {
+          stringValue: `${time}`
+        },
+        tags: {
+          arrayValue: {values: [...valuesString]}
+        }
+      }
+    })
+  })
+
+  window.location = '/stories'
 }
